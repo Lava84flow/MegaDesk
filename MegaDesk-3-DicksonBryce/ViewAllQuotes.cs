@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace MegaDesk_3_DicksonBryce
 {
-    public partial class Form1 : Form
+    public partial class ViewAllQuotes : Form
     {
-        public Form1()
+        public ViewAllQuotes()
         {
             InitializeComponent();
         }
