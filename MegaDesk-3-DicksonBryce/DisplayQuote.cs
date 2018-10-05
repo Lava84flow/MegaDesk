@@ -16,5 +16,16 @@ namespace MegaDesk_3_DicksonBryce
         {
             InitializeComponent();
         }
+
+        // ask how to display to a list view for returning many orders/quotes
+
+        private void buttonCancel_Click(object sender, EventArgs e)
+        {
+            //Use as basis for backing to search or main menu
+            //MainMenu returnMainMenu = new MainMenu();
+            //returnMainMenu.Tag = this;
+            //returnMainMenu.Show(this);
+            //Hide();
+        }
     }
 }

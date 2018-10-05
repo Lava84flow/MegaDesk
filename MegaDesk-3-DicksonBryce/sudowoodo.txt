@@ -1,0 +1,73 @@
+﻿Desk
+	var width;
+	var depth;
+	var drawers;
+	var material;
+	var area;
+	calcArea( var width, var depth ){
+		// calculate and return area: width * depth
+	}
+
+DeskQuote
+	var name
+	class desk
+	var DateTime
+	bool rushOrder
+	var rushDays
+	calcDrawers( var drawers ){
+		// calculate drawer cost: drawers * 50 return drawerCost
+	}
+	calcMaterial( var material ){
+		// calculate surface material cost with switch statement return materialCost
+	}
+	rushStatus( rushOrder ){ 
+	 // use if to see if rush cost even needs to be run
+		rushCost( var rushDays ){
+			// use if else to return rush costs: ( cost + addCosts ) using area and days as choice logic 
+		}
+	}
+	
+	calcQuote( area,  materialCost, drawerCost, rushCost ){ 
+		// calulate quote by using if statement to see if area is larger than 1000 to add more cost.
+		// otherwise, use ( baseCost || (area * 1) - 1000) + materialCost + drawerCost + rushCost
+	}
+	setDateTime(){
+		// sets Date and Time and formats for storing with the quote
+	}
+	setQuote(name, Cost, rushOrder, rushDays,){
+		// grabs and sets Quote infomation for Display and Database saving
+	}
+
+AddQuote
+	addQuote(){
+		// adds vaildated and accetable quote to to the database
+	}
+	submitQuote(){
+		// user clable button to intiaite quote calculation and saving process
+	}
+	getName(){
+		//grabs and validates customer name as a string data type
+	}
+	getWidth(){
+		// grabs and validates user input for width of desk
+		// valid if >= 24 inches and <= 96 inches
+		// return error message otherwise
+	}
+		getDrawers(){
+		// grabs and validates user input for depth of desk
+		// valid if >= 0 inches and <= 7 inches
+		// return error message otherwise 
+		// will most liklely be drop down menu
+	}
+		getMaterial(){
+		// grabs and validates user input for depth of desk
+		// valid if (laminate, oak, rosewood, veneer, or pine)
+		// return error message otherwise 
+		// will most liklely be drop down menu
+	}
+		getRush(){
+		// grabs and validates user input for width of desk
+		// valid if (0, 3, 5, or 7 days) otherwise order is estiamted for 14 business days.
+		// return error message otherwise
+		// will most liklely be drop down menu
+	}

@@ -16,5 +16,13 @@ namespace MegaDesk_3_DicksonBryce
         {
             InitializeComponent();
         }
+
+        private void buttonCancel_Click(object sender, EventArgs e)
+        {
+            MainMenu returnMainMenu = new MainMenu();
+            returnMainMenu.Tag = this;
+            returnMainMenu.Show(this);
+            Hide();
+        }
     }
 }
