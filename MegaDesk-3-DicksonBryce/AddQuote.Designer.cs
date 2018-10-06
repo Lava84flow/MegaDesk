@@ -33,8 +33,8 @@
             this.buttonSubmit = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.boxWidth = new System.Windows.Forms.TextBox();
+            this.boxDepth = new System.Windows.Forms.TextBox();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton3 = new System.Windows.Forms.RadioButton();
@@ -84,19 +84,24 @@
             this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 7;
             // 
-            // textBox2
+            // boxWidth
             // 
-            this.textBox2.Location = new System.Drawing.Point(114, 91);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 8;
+            this.boxWidth.Location = new System.Drawing.Point(114, 91);
+            this.boxWidth.Name = "boxWidth";
+            this.boxWidth.Size = new System.Drawing.Size(100, 20);
+            this.boxWidth.TabIndex = 8;
+            this.boxWidth.Validating += new System.ComponentModel.CancelEventHandler(this.boxWidth_Validating);
+            this.boxWidth.Validated += new System.EventHandler(this.boxWidth_Validated);
             // 
-            // textBox3
+            // boxDepth
             // 
-            this.textBox3.Location = new System.Drawing.Point(114, 131);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 9;
+            this.boxDepth.Location = new System.Drawing.Point(114, 131);
+            this.boxDepth.Name = "boxDepth";
+            this.boxDepth.Size = new System.Drawing.Size(100, 20);
+            this.boxDepth.TabIndex = 9;
+            this.boxDepth.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.boxDepth_KeyPress);
+            this.boxDepth.Validating += new System.ComponentModel.CancelEventHandler(this.boxDepth_Validating);
+            this.boxDepth.Validated += new System.EventHandler(this.boxDepth_Validated);
             // 
             // radioButton1
             // 
@@ -220,8 +225,8 @@
             this.Controls.Add(this.radioButton3);
             this.Controls.Add(this.radioButton2);
             this.Controls.Add(this.radioButton1);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.boxDepth);
+            this.Controls.Add(this.boxWidth);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.buttonSubmit);
@@ -242,8 +247,8 @@
         private System.Windows.Forms.Button buttonSubmit;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox boxWidth;
+        private System.Windows.Forms.TextBox boxDepth;
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton3;

@@ -24,5 +24,10 @@ namespace MegaDesk_3_DicksonBryce
             returnMainMenu.Show(this);
             Hide();
         }
+
+        private void boxDepth_Validating(object sender, CancelEventArgs e)
+        {
+
+        }
     }
 }
