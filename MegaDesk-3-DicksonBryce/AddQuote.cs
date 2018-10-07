@@ -12,41 +12,16 @@ namespace MegaDesk_3_DicksonBryce
 {
     public partial class AddQuote : Form
     {
+
         public AddQuote()
         {
             InitializeComponent();
-        }
-
-        private void AddQuote_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            //ask why this might be being stupid and giving me a stack overflow, a loop or still running program after closing window
-
-            //var ReturnMainMenu = (MainMenu)Tag;
-            //ReturnMainMenu.Show();
-            //this.Close();
-
-            //MainMenu returnMainMenu = new MainMenu();
-            //returnMainMenu.Tag = this;
-            //returnMainMenu.Show(this);
-            //Hide();
-
-            //var mainMenu = (MainMenu)Tag;
-            //mainMenu.Show();
-            //Close();
-
+            UserClosing = false;
         }
 
         private void buttonSubmit_Click(object sender, EventArgs e)
         {
 
-        }
-
-        private void buttonCancel_Click(object sender, EventArgs e)
-        {
-            MainMenu returnMainMenu = new MainMenu();
-            returnMainMenu.Tag = this;
-            returnMainMenu.Show(this);
-            Hide();
         }
 
         private void boxWidth_Validating(object sender, CancelEventArgs e)
@@ -131,6 +106,52 @@ namespace MegaDesk_3_DicksonBryce
 
         }
 
+        private void buttonCancel_Click(object sender, EventArgs e)
+        {
+            UserClosing = true;
+            var returnMainMenu = (MainMenu)Tag;
+            returnMainMenu.Show();
+            Close();
+        }
 
+        public bool UserClosing { get; set; }   
+
+        private void AddQuote_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            switch (e.CloseReason)
+            {
+                case CloseReason.ApplicationExitCall:
+                    break;
+                case CloseReason.FormOwnerClosing:
+                    break;
+                case CloseReason.MdiFormClosing:
+                    break;
+                case CloseReason.None:
+                    break;
+                case CloseReason.TaskManagerClosing:
+                    break;
+                case CloseReason.UserClosing:
+                    if (UserClosing)
+                    {
+                        //what should happen if the user hitted the button?
+                        var returnMainMenu = (MainMenu)Tag;
+                        returnMainMenu.Show();
+                    }
+                    else
+                    {
+                        //what should happen if the user hitted the x in the upper right corner?
+                        Application.Exit();
+                    }
+                    break;
+                case CloseReason.WindowsShutDown:
+                    break;
+                default:
+                    break;
+            }
+
+            // Set it back to false, just for the case e.Cancel was set to true
+            // and the closing was aborted.
+            UserClosing = false;
+        }
     }
 }

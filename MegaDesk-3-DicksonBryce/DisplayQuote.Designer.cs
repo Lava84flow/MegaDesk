@@ -225,6 +225,7 @@
             this.Controls.Add(this.buttonCancel);
             this.Name = "DisplayQuote";
             this.Text = "DisplayQuote";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.DisplayQuote_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 
