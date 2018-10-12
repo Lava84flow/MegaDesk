@@ -1,0 +1,5 @@
+add more condidnitons or name input such as ignoring close commands and numbers
+rename lablebels proepre for display quotes
+get switch for materals to behave
+find out how to attach data to drop down menus
+add datetime grab for addquote

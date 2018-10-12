@@ -11,11 +11,11 @@ namespace MegaDesk_3_DicksonBryce
         #region Member Vars
 
         //Desk Description
-        public int Width;
-        public int Depth;
-        public int Drawers;
-        //public int Material;
-        public int Area;
+        public int Width { get; set; }
+        public int Depth { get; set; }
+        public int Drawers { get; set; }
+        //public Material Material { get; set; }
+        public int Area { get; set; }
 
         #endregion
 
@@ -26,11 +26,11 @@ namespace MegaDesk_3_DicksonBryce
         public const int MAXDEPTH = 48;
 
         //Matrials
-        [Flags]
+        //[Flags]
         public enum Material {
             Oak = 200,
             Laminate = 100,
-            Pine = 50,
+            Pine =  50,
             Rosewood = 300,
             Veneer = 125
         }

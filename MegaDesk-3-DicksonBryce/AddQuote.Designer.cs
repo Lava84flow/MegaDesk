@@ -31,15 +31,15 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddQuote));
             this.buttonCancel = new System.Windows.Forms.Button();
             this.buttonSubmit = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.comboBoxDrawers = new System.Windows.Forms.ComboBox();
+            this.boxName = new System.Windows.Forms.TextBox();
             this.boxWidth = new System.Windows.Forms.TextBox();
             this.boxDepth = new System.Windows.Forms.TextBox();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.radioRushNone = new System.Windows.Forms.RadioButton();
+            this.radioRush3 = new System.Windows.Forms.RadioButton();
+            this.radioRush5 = new System.Windows.Forms.RadioButton();
+            this.radioRush7 = new System.Windows.Forms.RadioButton();
+            this.comboBoxMaterial = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -68,21 +68,32 @@
             this.buttonSubmit.UseVisualStyleBackColor = true;
             this.buttonSubmit.Click += new System.EventHandler(this.buttonSubmit_Click);
             // 
-            // comboBox1
+            // comboBoxDrawers
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(114, 211);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(10);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 6;
+            this.comboBoxDrawers.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxDrawers.FormattingEnabled = true;
+            this.comboBoxDrawers.Items.AddRange(new object[] {
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7"});
+            this.comboBoxDrawers.Location = new System.Drawing.Point(114, 211);
+            this.comboBoxDrawers.Margin = new System.Windows.Forms.Padding(10);
+            this.comboBoxDrawers.Name = "comboBoxDrawers";
+            this.comboBoxDrawers.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxDrawers.TabIndex = 6;
             // 
-            // textBox1
+            // boxName
             // 
-            this.textBox1.Location = new System.Drawing.Point(114, 51);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 7;
+            this.boxName.Location = new System.Drawing.Point(114, 51);
+            this.boxName.Name = "boxName";
+            this.boxName.Size = new System.Drawing.Size(100, 20);
+            this.boxName.TabIndex = 7;
+            this.boxName.Validating += new System.ComponentModel.CancelEventHandler(this.boxName_Validating);
             // 
             // boxWidth
             // 
@@ -99,61 +110,63 @@
             this.boxDepth.Name = "boxDepth";
             this.boxDepth.Size = new System.Drawing.Size(100, 20);
             this.boxDepth.TabIndex = 9;
-            this.boxDepth.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.boxDepth_KeyPress);
             this.boxDepth.Validating += new System.ComponentModel.CancelEventHandler(this.boxDepth_Validating);
             this.boxDepth.Validated += new System.EventHandler(this.boxDepth_Validated);
             // 
-            // radioButton1
+            // radioRushNone
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(680, 224);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(45, 17);
-            this.radioButton1.TabIndex = 10;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "N/A";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioRushNone.AutoSize = true;
+            this.radioRushNone.Location = new System.Drawing.Point(680, 224);
+            this.radioRushNone.Name = "radioRushNone";
+            this.radioRushNone.Size = new System.Drawing.Size(45, 17);
+            this.radioRushNone.TabIndex = 10;
+            this.radioRushNone.Text = "N/A";
+            this.radioRushNone.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // radioRush3
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(680, 247);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(53, 17);
-            this.radioButton2.TabIndex = 11;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "3 Day";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.radioRush3.AutoSize = true;
+            this.radioRush3.Location = new System.Drawing.Point(680, 247);
+            this.radioRush3.Name = "radioRush3";
+            this.radioRush3.Size = new System.Drawing.Size(53, 17);
+            this.radioRush3.TabIndex = 11;
+            this.radioRush3.Text = "3 Day";
+            this.radioRush3.UseVisualStyleBackColor = true;
             // 
-            // radioButton3
+            // radioRush5
             // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(680, 271);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(53, 17);
-            this.radioButton3.TabIndex = 12;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "5 Day";
-            this.radioButton3.UseVisualStyleBackColor = true;
+            this.radioRush5.AutoSize = true;
+            this.radioRush5.Location = new System.Drawing.Point(680, 271);
+            this.radioRush5.Name = "radioRush5";
+            this.radioRush5.Size = new System.Drawing.Size(53, 17);
+            this.radioRush5.TabIndex = 12;
+            this.radioRush5.Text = "5 Day";
+            this.radioRush5.UseVisualStyleBackColor = true;
             // 
-            // radioButton4
+            // radioRush7
             // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Location = new System.Drawing.Point(680, 295);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(53, 17);
-            this.radioButton4.TabIndex = 13;
-            this.radioButton4.TabStop = true;
-            this.radioButton4.Text = "7 Day";
-            this.radioButton4.UseVisualStyleBackColor = true;
+            this.radioRush7.AutoSize = true;
+            this.radioRush7.Location = new System.Drawing.Point(680, 295);
+            this.radioRush7.Name = "radioRush7";
+            this.radioRush7.Size = new System.Drawing.Size(53, 17);
+            this.radioRush7.TabIndex = 13;
+            this.radioRush7.Text = "7 Day";
+            this.radioRush7.UseVisualStyleBackColor = true;
             // 
-            // comboBox2
+            // comboBoxMaterial
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(114, 246);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 21);
-            this.comboBox2.TabIndex = 14;
+            this.comboBoxMaterial.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxMaterial.FormattingEnabled = true;
+            this.comboBoxMaterial.Items.AddRange(new object[] {
+            "Oak",
+            "Laminate",
+            "Pine",
+            "Rosewood",
+            "Veneer"});
+            this.comboBoxMaterial.Location = new System.Drawing.Point(114, 246);
+            this.comboBoxMaterial.Name = "comboBoxMaterial";
+            this.comboBoxMaterial.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxMaterial.TabIndex = 14;
             // 
             // label1
             // 
@@ -220,15 +233,15 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.radioButton4);
-            this.Controls.Add(this.radioButton3);
-            this.Controls.Add(this.radioButton2);
-            this.Controls.Add(this.radioButton1);
+            this.Controls.Add(this.comboBoxMaterial);
+            this.Controls.Add(this.radioRush7);
+            this.Controls.Add(this.radioRush5);
+            this.Controls.Add(this.radioRush3);
+            this.Controls.Add(this.radioRushNone);
             this.Controls.Add(this.boxDepth);
             this.Controls.Add(this.boxWidth);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.boxName);
+            this.Controls.Add(this.comboBoxDrawers);
             this.Controls.Add(this.buttonSubmit);
             this.Controls.Add(this.buttonCancel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -245,15 +258,15 @@
 
         private System.Windows.Forms.Button buttonCancel;
         private System.Windows.Forms.Button buttonSubmit;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ComboBox comboBoxDrawers;
+        private System.Windows.Forms.TextBox boxName;
         private System.Windows.Forms.TextBox boxWidth;
         private System.Windows.Forms.TextBox boxDepth;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton4;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.RadioButton radioRushNone;
+        private System.Windows.Forms.RadioButton radioRush3;
+        private System.Windows.Forms.RadioButton radioRush5;
+        private System.Windows.Forms.RadioButton radioRush7;
+        private System.Windows.Forms.ComboBox comboBoxMaterial;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;

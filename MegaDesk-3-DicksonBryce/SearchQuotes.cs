@@ -26,6 +26,102 @@ namespace MegaDesk_3_DicksonBryce
             Close();
         }
 
+
+
+        private void boxName_Validating(object sender, CancelEventArgs e)
+        {
+            //work on more condintions for this like excluding numbers and ignoring if window is closing
+            if (boxName.Text == String.Empty)
+            {
+                MessageBox.Show("Please enter a Name");
+                boxName.Text = String.Empty;
+                boxName.BackColor = Color.DarkOrange;
+                boxName.Focus();
+            }
+            else
+            {
+                boxWidth.BackColor = System.Drawing.SystemColors.Window;
+            }
+        }
+
+        private void boxWidth_Validating(object sender, CancelEventArgs e)
+        {
+            if (int.TryParse(boxWidth.Text, out int WidthInput) == true)
+            {
+                if (WidthInput < Desk.MINWIDTH || WidthInput > Desk.MAXWIDTH)
+                {
+                    MessageBox.Show("Please enter a width from " + Desk.MINWIDTH + " to " + Desk.MAXWIDTH + " inches");
+                    boxWidth.Text = String.Empty;
+                    boxWidth.BackColor = Color.DarkOrange;
+                    boxWidth.Focus();
+                }
+                else
+                {
+                    boxWidth.BackColor = System.Drawing.SystemColors.Window;
+                }
+            }
+            else if (int.TryParse(boxWidth.Text, out WidthInput) == false && boxWidth.Text.Length != 0)
+            {
+                MessageBox.Show("Please enter a number");
+                boxWidth.Text = String.Empty;
+                boxWidth.BackColor = Color.DarkOrange;
+                boxWidth.Focus();
+            }
+            else
+            {
+                boxWidth.BackColor = System.Drawing.SystemColors.Window;
+            }
+        }
+
+                private void boxDepth_Validating(object sender, CancelEventArgs e)
+        {
+            if (int.TryParse(boxDepth.Text, out int DepthInput) == true)
+            {
+                if (DepthInput < Desk.MINDEPTH || DepthInput > Desk.MAXDEPTH)
+                {
+                    MessageBox.Show("Please enter a depth from " + Desk.MINDEPTH + " to " + Desk.MAXDEPTH + " inches");
+                    boxDepth.Text = String.Empty;
+                    boxDepth.BackColor = Color.DarkOrange;
+                    boxDepth.Focus();
+                }
+            }
+                //no longer need with handled keypress
+            else if (int.TryParse(boxDepth.Text, out DepthInput) == false && boxDepth.Text.Length != 0)
+            {
+                MessageBox.Show("Please enter a number");
+                boxDepth.Text = String.Empty;
+                boxDepth.BackColor = Color.DarkOrange;
+                boxDepth.Focus();
+            }
+            else
+            // ask why this works in boxWidth but not boxDepth
+            {
+                boxDepth.BackColor = System.Drawing.SystemColors.Window;
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         public bool UserClosing { get; set; }
 
         private void SearchQuotes_FormClosing(object sender, FormClosingEventArgs e)
@@ -66,10 +162,6 @@ namespace MegaDesk_3_DicksonBryce
             UserClosing = false;
         }
 
-        private void boxDepth_Validating(object sender, CancelEventArgs e)
-        {
-
-        }
 
     }
 }

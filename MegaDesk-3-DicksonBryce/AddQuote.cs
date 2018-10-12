@@ -19,10 +19,23 @@ namespace MegaDesk_3_DicksonBryce
             UserClosing = false;
         }
 
-        private void buttonSubmit_Click(object sender, EventArgs e)
+        private void boxName_Validating(object sender, CancelEventArgs e)
         {
-
+            //work on more condintions for this like excluding numbers and ignoring if window is closing
+            if (boxName.Text == String.Empty )
+            {
+                MessageBox.Show("Please enter a Name");
+                boxName.Text = String.Empty;
+                boxName.BackColor = Color.DarkOrange;
+                boxName.Focus();
+            }
+            else
+            {
+                boxWidth.BackColor = System.Drawing.SystemColors.Window;
+            }
         }
+
+
 
         private void boxWidth_Validating(object sender, CancelEventArgs e)
         {
@@ -59,20 +72,20 @@ namespace MegaDesk_3_DicksonBryce
         }
 
 
-        private void boxDepth_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (Char.IsControl(e.KeyChar) == false && Char.IsDigit(e.KeyChar) == false)
-            {
-                MessageBox.Show("Please enter a number");
-                e.Handled = true;
-                boxDepth.BackColor = Color.DarkOrange;
-                boxDepth.Focus();
-            }
-            else
-            {
-                boxDepth.BackColor = System.Drawing.SystemColors.Window;
-            }
-        }
+        //private void boxDepth_KeyPress(object sender, KeyPressEventArgs e)
+        //{
+        //    if (Char.IsControl(e.KeyChar) == false && Char.IsDigit(e.KeyChar) == false)
+        //    {
+        //        MessageBox.Show("Please enter a number");
+        //        e.Handled = true;
+        //        boxDepth.BackColor = Color.DarkOrange;
+        //        boxDepth.Focus();
+        //    }
+        //    else
+        //    {
+        //        boxDepth.BackColor = System.Drawing.SystemColors.Window;
+        //    }
+        //}
 
         private void boxDepth_Validating(object sender, CancelEventArgs e)
         {
@@ -86,19 +99,19 @@ namespace MegaDesk_3_DicksonBryce
                     boxDepth.Focus();
                 }
             }
-            //no longer need with handled keypress
-            //else if (int.TryParse(boxDepth.Text, out DepthInput) == false && boxDepth.Text.Length != 0)
-            //{
-            //    MessageBox.Show("Please enter a number");
-            //    boxDepth.Text = String.Empty;
-            //    boxDepth.BackColor = Color.DarkOrange;
-            //    boxDepth.Focus();
-            //}
+                //no longer need with handled keypress
+            else if (int.TryParse(boxDepth.Text, out DepthInput) == false && boxDepth.Text.Length != 0)
+            {
+                MessageBox.Show("Please enter a number");
+                boxDepth.Text = String.Empty;
+                boxDepth.BackColor = Color.DarkOrange;
+                boxDepth.Focus();
+            }
             else
+            // ask why this works in boxWidth but not boxDepth
             {
                 boxDepth.BackColor = System.Drawing.SystemColors.Window;
             }
-            
         }
 
         private void boxDepth_Validated(object sender, EventArgs e)
@@ -152,6 +165,11 @@ namespace MegaDesk_3_DicksonBryce
             // Set it back to false, just for the case e.Cancel was set to true
             // and the closing was aborted.
             UserClosing = false;
+        }
+
+        private void buttonSubmit_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
