@@ -46,7 +46,7 @@ namespace MegaDesk_3_DicksonBryce
             }
             else
             {
-                boxWidth.BackColor = System.Drawing.SystemColors.Window;
+                boxName.BackColor = System.Drawing.SystemColors.Window;
             }
         }
                
@@ -109,6 +109,10 @@ namespace MegaDesk_3_DicksonBryce
                     boxDepth.Text = String.Empty;
                     boxDepth.BackColor = Color.DarkOrange;
                     boxDepth.Focus();
+                }
+                else
+                {
+                    boxWidth.BackColor = System.Drawing.SystemColors.Window;
                 }
             }
                 //no longer need with handled keypress
@@ -209,7 +213,7 @@ namespace MegaDesk_3_DicksonBryce
 
                 // create new deskOrder and calcQuote
                 DeskQuote NewQuote = new DeskQuote( CustomerName, DateTime.Now, DeskWidth, DeskDepth, Drawers, Material, RushDays );
-                QuoteTotal = NewQuote;
+                QuoteTotal = NewQuote.CalcQuote();
             }
             catch (Exception)
             {

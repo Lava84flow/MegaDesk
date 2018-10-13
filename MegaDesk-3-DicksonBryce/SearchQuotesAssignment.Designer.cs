@@ -39,15 +39,16 @@
             // 
             this.comboBoxMaterial.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxMaterial.FormattingEnabled = true;
-            this.comboBoxMaterial.Location = new System.Drawing.Point(317, 78);
+            this.comboBoxMaterial.Location = new System.Drawing.Point(308, 12);
             this.comboBoxMaterial.Name = "comboBoxMaterial";
             this.comboBoxMaterial.Size = new System.Drawing.Size(121, 21);
             this.comboBoxMaterial.TabIndex = 26;
+            this.comboBoxMaterial.SelectedIndexChanged += new System.EventHandler(this.comboBoxMaterial_SelectedIndexChanged);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(193, 102);
+            this.label5.Location = new System.Drawing.Point(258, 15);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(44, 13);
             this.label5.TabIndex = 27;
@@ -55,11 +56,12 @@
             // 
             // listView1
             // 
-            this.listView1.Location = new System.Drawing.Point(49, 202);
+            this.listView1.Location = new System.Drawing.Point(12, 141);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(671, 177);
+            this.listView1.Size = new System.Drawing.Size(708, 238);
             this.listView1.TabIndex = 28;
             this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.Details;
             // 
             // buttonSubmit
             // 
