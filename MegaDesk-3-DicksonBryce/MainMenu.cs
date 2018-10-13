@@ -35,9 +35,9 @@ namespace MegaDesk_3_DicksonBryce
 
         private void buttonSearch_Click(object sender, EventArgs e)
         {
-            SearchQuotes searchQuotes = new SearchQuotes();
-            searchQuotes.Tag = this;
-            searchQuotes.Show(this);
+            SearchQuotesAssignment SearchQuotesAssignment = new SearchQuotesAssignment();
+            SearchQuotesAssignment.Tag = this;
+            SearchQuotesAssignment.Show(this);
             Hide();
         }
 
