@@ -12,10 +12,25 @@ namespace MegaDesk_3_DicksonBryce
 {
     public partial class AddQuote : Form
     {
+        #region Declarations
+
+        string CustomerName = String.Empty;
+        int DeskWidth = 0;
+        int DeskDepth = 0;
+        int Drawers = 0;
+        Desk.Material Material;
+        int RushDays = 0;
+        int QuoteTotal;
+               
+        #endregion
 
         public AddQuote()
         {
             InitializeComponent();
+
+            List<Desk.Material> MaterialList = Enum.GetValues(typeof(Desk.Material)).Cast<Desk.Material>().ToList();
+            comboBoxMaterial.DataSource = MaterialList;
+
             UserClosing = false;
         }
 
@@ -34,9 +49,7 @@ namespace MegaDesk_3_DicksonBryce
                 boxWidth.BackColor = System.Drawing.SystemColors.Window;
             }
         }
-
-
-
+               
         private void boxWidth_Validating(object sender, CancelEventArgs e)
         {
             if (int.TryParse(boxWidth.Text, out int WidthInput) == true)
@@ -70,7 +83,6 @@ namespace MegaDesk_3_DicksonBryce
         {
 
         }
-
 
         //private void boxDepth_KeyPress(object sender, KeyPressEventArgs e)
         //{
@@ -169,7 +181,41 @@ namespace MegaDesk_3_DicksonBryce
 
         private void buttonSubmit_Click(object sender, EventArgs e)
         {
+            try
+            {
+                CustomerName = boxName.Text;
+                DeskWidth = int.Parse(boxWidth.Text);
+                DeskDepth = int.Parse(boxDepth.Text);
+                Drawers = int.Parse(comboBoxDrawers.SelectedItem.ToString());
+                Material = (Desk.Material)comboBoxMaterial.SelectedValue;
 
+                // Get rush order days base on radio box selections
+                if (radioRushNone.Checked)
+                {
+                    RushDays = 0;
+                }
+                if (radioRush3.Checked)
+                {
+                    RushDays = 3;
+                }
+                if (radioRush5.Checked)
+                {
+                    RushDays = 5;
+                }
+                if (radioRush7.Checked)
+                {
+                    RushDays = 7;
+                }
+
+                // create new deskOrder and calcQuote
+                DeskQuote NewQuote = new DeskQuote( CustomerName, DateTime.Now, DeskWidth, DeskDepth, Drawers, Material, RushDays );
+                QuoteTotal = NewQuote;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }

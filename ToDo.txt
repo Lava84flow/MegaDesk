@@ -1,5 +1,6 @@
-add more condidnitons or name input such as ignoring close commands and numbers
-rename lablebels proepre for display quotes
-get switch for materals to behave
-find out how to attach data to drop down menus
-add datetime grab for addquote
+later: rename lablebels proper for display quotes
+done: get switch for materals to behave
+done: find out how to attach data to drop down menus
+now: add datetime grab for addquote
+now: add search for quotes based on material
+now: add file dump to text file called quotes.txt in csv

@@ -15,6 +15,10 @@ namespace MegaDesk_3_DicksonBryce
         public SearchQuotes()
         {
             InitializeComponent();
+
+            List<Desk.Material> MaterialList = Enum.GetValues(typeof(Desk.Material)).Cast<Desk.Material>().ToList();
+            comboBoxMaterial.DataSource = MaterialList;
+
             UserClosing = false;
         }
 

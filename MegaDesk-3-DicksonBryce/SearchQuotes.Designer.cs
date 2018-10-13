@@ -43,11 +43,11 @@
             this.radioRush5 = new System.Windows.Forms.RadioButton();
             this.radioRush3 = new System.Windows.Forms.RadioButton();
             this.radioRushNone = new System.Windows.Forms.RadioButton();
-            this.comboBoxMaterial = new System.Windows.Forms.ComboBox();
             this.comboBoxDrawers = new System.Windows.Forms.ComboBox();
             this.boxDepth = new System.Windows.Forms.TextBox();
             this.boxWidth = new System.Windows.Forms.TextBox();
             this.boxName = new System.Windows.Forms.TextBox();
+            this.comboBoxMaterial = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // buttonCancel
@@ -180,21 +180,6 @@
             this.radioRushNone.Text = "N/A";
             this.radioRushNone.UseVisualStyleBackColor = true;
             // 
-            // comboBoxMaterial
-            // 
-            this.comboBoxMaterial.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxMaterial.FormattingEnabled = true;
-            this.comboBoxMaterial.Items.AddRange(new object[] {
-            "Oak",
-            "Laminate",
-            "Pine",
-            "Rosewood",
-            "Veneer"});
-            this.comboBoxMaterial.Location = new System.Drawing.Point(112, 297);
-            this.comboBoxMaterial.Name = "comboBoxMaterial";
-            this.comboBoxMaterial.Size = new System.Drawing.Size(121, 21);
-            this.comboBoxMaterial.TabIndex = 21;
-            // 
             // comboBoxDrawers
             // 
             this.comboBoxDrawers.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -238,15 +223,24 @@
             this.boxName.TabIndex = 22;
             this.boxName.Validating += new System.ComponentModel.CancelEventHandler(this.boxName_Validating);
             // 
+            // comboBoxMaterial
+            // 
+            this.comboBoxMaterial.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxMaterial.FormattingEnabled = true;
+            this.comboBoxMaterial.Location = new System.Drawing.Point(112, 293);
+            this.comboBoxMaterial.Name = "comboBoxMaterial";
+            this.comboBoxMaterial.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxMaterial.TabIndex = 25;
+            // 
             // SearchQuotes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.comboBoxMaterial);
             this.Controls.Add(this.boxDepth);
             this.Controls.Add(this.boxWidth);
             this.Controls.Add(this.boxName);
-            this.Controls.Add(this.comboBoxMaterial);
             this.Controls.Add(this.comboBoxDrawers);
             this.Controls.Add(this.radioRush7);
             this.Controls.Add(this.radioRush5);
@@ -288,10 +282,10 @@
         private System.Windows.Forms.RadioButton radioRush5;
         private System.Windows.Forms.RadioButton radioRush3;
         private System.Windows.Forms.RadioButton radioRushNone;
-        private System.Windows.Forms.ComboBox comboBoxMaterial;
         private System.Windows.Forms.ComboBox comboBoxDrawers;
         private System.Windows.Forms.TextBox boxDepth;
         private System.Windows.Forms.TextBox boxWidth;
         private System.Windows.Forms.TextBox boxName;
+        private System.Windows.Forms.ComboBox comboBoxMaterial;
     }
 }

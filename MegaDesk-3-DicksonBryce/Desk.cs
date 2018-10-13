@@ -14,7 +14,7 @@ namespace MegaDesk_3_DicksonBryce
         public int Width { get; set; }
         public int Depth { get; set; }
         public int Drawers { get; set; }
-        //public Material Material { get; set; }
+        public Material DeskMaterial { get; set; }
         public int Area { get; set; }
 
         #endregion

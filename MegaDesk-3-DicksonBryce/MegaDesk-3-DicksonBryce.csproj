@@ -74,6 +74,12 @@
     <Compile Include="SearchQuotes.Designer.cs">
       <DependentUpon>SearchQuotes.cs</DependentUpon>
     </Compile>
+    <Compile Include="SearchQuotesAssignment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SearchQuotesAssignment.Designer.cs">
+      <DependentUpon>SearchQuotesAssignment.cs</DependentUpon>
+    </Compile>
     <Compile Include="ViewAllQuotes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,6 +106,9 @@
     </Compile>
     <EmbeddedResource Include="SearchQuotes.resx">
       <DependentUpon>SearchQuotes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SearchQuotesAssignment.resx">
+      <DependentUpon>SearchQuotesAssignment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ViewAllQuotes.resx">
       <DependentUpon>ViewAllQuotes.cs</DependentUpon>
