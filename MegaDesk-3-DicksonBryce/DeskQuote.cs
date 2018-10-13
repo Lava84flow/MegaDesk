@@ -14,8 +14,8 @@ namespace MegaDesk_3_DicksonBryce
         private string CustomerName;
         private DateTime QuoteDate;
         private Desk Desk = new Desk();
-        private int material;
-        private int materialCost;
+        //private int material;
+        //private int materialCost;
         public  int QuoteTotal;
         public  int RushDays;
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -37,12 +38,12 @@ namespace MegaDesk_3_DicksonBryce
         private void boxName_Validating(object sender, CancelEventArgs e)
         {
             //work on more condintions for this like excluding numbers and ignoring if window is closing
-            if (boxName.Text == String.Empty )
+            if (boxName.Text == String.Empty)
             {
                 MessageBox.Show("Please enter a Name");
                 boxName.Text = String.Empty;
                 boxName.BackColor = Color.DarkOrange;
-                boxName.Focus();
+                //boxName.Focus();
             }
             else
             {
@@ -112,7 +113,7 @@ namespace MegaDesk_3_DicksonBryce
                 }
                 else
                 {
-                    boxWidth.BackColor = System.Drawing.SystemColors.Window;
+                    boxDepth.BackColor = System.Drawing.SystemColors.Window;
                 }
             }
                 //no longer need with handled keypress
@@ -162,7 +163,7 @@ namespace MegaDesk_3_DicksonBryce
                 case CloseReason.UserClosing:
                     if (UserClosing)
                     {
-                        //what should happen if the user hitted the button?
+                        //what should happen if the user hit the button?
                         var returnMainMenu = (MainMenu)Tag;
                         returnMainMenu.Show();
                     }
@@ -214,10 +215,22 @@ namespace MegaDesk_3_DicksonBryce
                 // create new deskOrder and calcQuote
                 DeskQuote NewQuote = new DeskQuote( CustomerName, DateTime.Now, DeskWidth, DeskDepth, Drawers, Material, RushDays );
                 QuoteTotal = NewQuote.CalcQuote();
+
+                //build string to quote save to file
+                var DeskFileWrite = CustomerName + "," + DateTime.Now + "," + DeskWidth+ "," + DeskDepth + "," + Drawers + "," + Material + "," + RushDays + "," + QuoteTotal;
+                string cFile = @"quotes.txt";
+                if (!File.Exists(cFile))
+                {
+                    using (StreamWriter sw = File.CreateText("quotes.txt.")) { }
+                }
+                using (StreamWriter swa = File.AppendText("quotes.txt.")) { swa.WriteLine(DeskFileWrite); }
+
+                MessageBox.Show("Quote Submitted");
+                     
             }
             catch (Exception)
             {
-
+                
                 throw;
             }
         }

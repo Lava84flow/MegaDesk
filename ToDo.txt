@@ -1,6 +1,6 @@
 later: rename lablebels proper for display quotes
 done: get switch for materals to behave
 done: find out how to attach data to drop down menus
-now: add datetime grab for addquote
+done: add datetime grab for addquote
 now: add search for quotes based on material
-now: add file dump to text file called quotes.txt in csv
+done: add file dump to text file called quotes.txt in csv
