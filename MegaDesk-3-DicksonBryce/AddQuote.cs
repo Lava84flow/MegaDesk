@@ -216,6 +216,10 @@ namespace MegaDesk_3_DicksonBryce
                 DeskQuote NewQuote = new DeskQuote( CustomerName, DateTime.Now, DeskWidth, DeskDepth, Drawers, Material, RushDays );
                 QuoteTotal = NewQuote.CalcQuote();
 
+
+                MemoryStream stream = new MemoryStream();
+                DataContractJsonSerializer ser = new DataContractJsonSerializer();
+
                 //build string to quote save to file
                 var DeskFileWrite = CustomerName + "," + DateTime.Now + "," + DeskWidth+ "," + DeskDepth + "," + Drawers + "," + Material + "," + RushDays + "," + QuoteTotal;
                 string cFile = @"quotes.txt";
