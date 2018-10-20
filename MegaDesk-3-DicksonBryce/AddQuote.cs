@@ -268,5 +268,20 @@ namespace MegaDesk_3_DicksonBryce
         {
             confirmQuotePanel.Visible = false;
         }
+
+        private void rushPriceTest_Click(object sender, EventArgs e)
+        {
+            if (!File.Exists(DeskQuote.RUSHPRICES))
+            {
+                MessageBox.Show("Can't find Rush Prices");
+            }
+            else
+            {
+                System.Media.SystemSounds.Beep.Play();
+                DeskQuote.GrabPrices();
+            }
+
+
+        }
     }
 }

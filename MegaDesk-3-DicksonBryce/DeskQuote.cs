@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,8 +17,8 @@ namespace MegaDesk_3_DicksonBryce
         private Desk Desk = new Desk();
         //private int material;
         //private int materialCost;
-        public  int QuoteTotal;
-        public  int RushDays;
+        public int QuoteTotal;
+        public int RushDays;
 
         #endregion
 
@@ -73,8 +74,8 @@ namespace MegaDesk_3_DicksonBryce
 
         public int CalcQuote()
         {
-                QuoteTotal = PRICE_BASE + AreaCost() + DrawerCost() + (int)Desk.DeskMaterial + RushCost();
-                return QuoteTotal;
+            QuoteTotal = PRICE_BASE + AreaCost() + DrawerCost() + (int)Desk.DeskMaterial + RushCost();
+            return QuoteTotal;
         }
 
         private int AreaCost()
@@ -95,6 +96,29 @@ namespace MegaDesk_3_DicksonBryce
             int DrawerCost = Desk.Drawers * PRICE_PER_DRAWER;
             return DrawerCost;
         }
+
+        // grab Rush Prices out of a file and then make multi dimensional array
+        #region RushCost Array
+
+        public const string RUSHPRICES = @"../../rushOrderPrices.txt";
+
+        public static string[][] GrabPrices(int Area, int Days)
+        {
+            int rushprice = ;
+
+            string[] lines = File.ReadAllLines(RUSHPRICES);
+
+            string[][] arr = new string[lines.Length][];
+
+            for (int rowIndex = 0; rowIndex < allFileLines.Length; rowIndex++)
+            {
+                // Split by the space character and remove blank entries
+                arr[rowIndex] = lines[rowIndex].Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+            }
+            return rushPrice;
+        }
+
+        #endregion
 
         private int RushCost()
         {

@@ -63,6 +63,7 @@
             this.nameLabel = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
+            this.rushPriceTest = new System.Windows.Forms.Button();
             this.confirmQuotePanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -420,18 +421,28 @@
             this.label22.TabIndex = 12;
             this.label22.Text = "Customer:";
             // 
+            // rushPriceTest
+            // 
+            this.rushPriceTest.Location = new System.Drawing.Point(601, 95);
+            this.rushPriceTest.Name = "rushPriceTest";
+            this.rushPriceTest.Size = new System.Drawing.Size(95, 23);
+            this.rushPriceTest.TabIndex = 29;
+            this.rushPriceTest.Text = "Rush Price Test";
+            this.rushPriceTest.UseVisualStyleBackColor = true;
+            this.rushPriceTest.Click += new System.EventHandler(this.rushPriceTest_Click);
+            // 
             // AddQuote
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.confirmQuotePanel);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.rushPriceTest);
             this.Controls.Add(this.comboBoxMaterial);
             this.Controls.Add(this.radioRush7);
             this.Controls.Add(this.radioRush5);
@@ -443,6 +454,7 @@
             this.Controls.Add(this.comboBoxDrawers);
             this.Controls.Add(this.buttonConfirm);
             this.Controls.Add(this.buttonExitAdd);
+            this.Controls.Add(this.confirmQuotePanel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AddQuote";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -491,5 +503,6 @@
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Button buttonSubmit;
         private System.Windows.Forms.Button buttonCancel;
+        private System.Windows.Forms.Button rushPriceTest;
     }
 }
