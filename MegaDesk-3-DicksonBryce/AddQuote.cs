@@ -224,7 +224,7 @@ namespace MegaDesk_3_DicksonBryce
 
                 //json = JsonConvert.SerializeObject(NewQuote);
                 MemoryStream stream1 = new MemoryStream();
-                JsonConvert.SerializeObject(stream1);
+                string ouput = JsonConvert.SerializeObject(stream1);
                 //DataContractJsonSerializer ser = new DataContractJsonSerializer(typeof(NewQuote));
 
                 //build string to quote save to file
