@@ -278,7 +278,7 @@ namespace MegaDesk_3_DicksonBryce
             else
             {
                 System.Media.SystemSounds.Beep.Play();
-                DeskQuote.GrabPrices();
+                DeskQuote.GrabPrices(1500, RushDays);
             }
 
 

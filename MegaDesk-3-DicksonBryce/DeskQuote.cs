@@ -19,6 +19,7 @@ namespace MegaDesk_3_DicksonBryce
         //private int materialCost;
         public int QuoteTotal;
         public int RushDays;
+        
 
         #endregion
 
@@ -102,20 +103,20 @@ namespace MegaDesk_3_DicksonBryce
 
         public const string RUSHPRICES = @"../../rushOrderPrices.txt";
 
-        public static string[][] GrabPrices(int Area, int Days)
+        public static void GrabPrices(int Area, int Days)
         {
-            int rushprice = ;
+            //    int[,] rushPrice = arr;
 
-            string[] lines = File.ReadAllLines(RUSHPRICES);
+            //    string[] lines = File.ReadAllLines(RUSHPRICES);
 
-            string[][] arr = new string[lines.Length][];
+            //    string[][] arr = new string[lines.Length][];
 
-            for (int rowIndex = 0; rowIndex < allFileLines.Length; rowIndex++)
-            {
-                // Split by the space character and remove blank entries
-                arr[rowIndex] = lines[rowIndex].Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
-            }
-            return rushPrice;
+            //    for (int days = 0; days < lines.Length; days++)
+            //    {
+            //        // Split by the space character and remove blank entries
+            //        arr[days] = lines[days].Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+            //    }
+            //    return rushPrice[ , ];
         }
 
         #endregion
