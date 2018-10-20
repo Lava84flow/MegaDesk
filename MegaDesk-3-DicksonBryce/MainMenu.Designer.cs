@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainMenu));
             this.buttonAddNew = new System.Windows.Forms.Button();
-            this.buttonViewAll = new System.Windows.Forms.Button();
+            //this.buttonViewAll = new System.Windows.Forms.Button();
             this.buttonSearch = new System.Windows.Forms.Button();
             this.buttonExit = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -51,15 +51,15 @@
             // 
             // buttonViewAll
             // 
-            this.buttonViewAll.AutoSize = true;
-            this.buttonViewAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonViewAll.Location = new System.Drawing.Point(50, 160);
-            this.buttonViewAll.Name = "buttonViewAll";
-            this.buttonViewAll.Size = new System.Drawing.Size(135, 50);
-            this.buttonViewAll.TabIndex = 0;
-            this.buttonViewAll.Text = "&View Quotes";
-            this.buttonViewAll.UseVisualStyleBackColor = true;
-            this.buttonViewAll.Click += new System.EventHandler(this.buttonViewAll_Click);
+            //this.buttonViewAll.AutoSize = true;
+            //this.buttonViewAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            //this.buttonViewAll.Location = new System.Drawing.Point(50, 160);
+            //this.buttonViewAll.Name = "buttonViewAll";
+            //this.buttonViewAll.Size = new System.Drawing.Size(135, 50);
+            //this.buttonViewAll.TabIndex = 0;
+            //this.buttonViewAll.Text = "&View Quotes";
+            //this.buttonViewAll.UseVisualStyleBackColor = true;
+            //this.buttonViewAll.Click += new System.EventHandler(this.buttonViewAll_Click);
             // 
             // buttonSearch
             // 
@@ -102,7 +102,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.buttonExit);
             this.Controls.Add(this.buttonSearch);
-            this.Controls.Add(this.buttonViewAll);
+            //this.Controls.Add(this.buttonViewAll);
             this.Controls.Add(this.buttonAddNew);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainMenu";
@@ -117,7 +117,7 @@
         #endregion
 
         private System.Windows.Forms.Button buttonAddNew;
-        private System.Windows.Forms.Button buttonViewAll;
+        //private System.Windows.Forms.Button buttonViewAll;
         private System.Windows.Forms.Button buttonSearch;
         private System.Windows.Forms.Button buttonExit;
         private System.Windows.Forms.PictureBox pictureBox1;

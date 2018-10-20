@@ -136,7 +136,7 @@ namespace MegaDesk_3_DicksonBryce
 
         }
 
-        private void buttonCancel_Click(object sender, EventArgs e)
+        private void buttonBack_Click(object sender, EventArgs e)
         {
             UserClosing = true;
             var returnMainMenu = (MainMenu)Tag;
@@ -226,13 +226,47 @@ namespace MegaDesk_3_DicksonBryce
                 using (StreamWriter swa = File.AppendText("quotes.txt.")) { swa.WriteLine(DeskFileWrite); }
 
                 MessageBox.Show("Quote Submitted");
-                     
+                confirmQuotePanel.Visible = false;
+
             }
             catch (Exception)
             {
                 
                 throw;
             }
+        }
+
+        private void buttonConfirm_Click(object sender, EventArgs e)
+        {
+            nameLabel.Text = boxName.Text;
+            dateLabel.Text = DateTime.Now.ToShortDateString();
+            widthLabel.Text = boxWidth.Text + " inches";
+            depthLabel.Text = boxDepth.Text + " inches";
+            drawerLabel.Text = comboBoxDrawers.SelectedItem.ToString();
+            materialLabel.Text = comboBoxMaterial.SelectedItem.ToString();
+            rushLabel.Text = RushDays.ToString() + " days";
+            if (radioRushNone.Checked)
+            {
+                RushDays = 0;
+            }
+            if (radioRush3.Checked)
+            {
+                RushDays = 3;
+            }
+            if (radioRush5.Checked)
+            {
+                RushDays = 5;
+            }
+            if (radioRush7.Checked)
+            {
+                RushDays = 7;
+            }
+            confirmQuotePanel.Visible = true;
+        }
+
+        private void buttonCancel_Click(object sender, EventArgs e)
+        {
+            confirmQuotePanel.Visible = false;
         }
     }
 }

@@ -25,13 +25,13 @@ namespace MegaDesk_3_DicksonBryce
             Hide();
         }
 
-        private void buttonViewAll_Click(object sender, EventArgs e)
-        {
-            ViewAllQuotes viewAllQuoteForm = new ViewAllQuotes();
-            viewAllQuoteForm.Tag = this;
-            viewAllQuoteForm.Show(this);
-            Hide();
-        }
+        //private void buttonViewAll_Click(object sender, EventArgs e)
+        //{
+        //    ViewAllQuotes viewAllQuoteForm = new ViewAllQuotes();
+        //    viewAllQuoteForm.Tag = this;
+        //    viewAllQuoteForm.Show(this);
+        //    Hide();
+        //}
 
         private void buttonSearch_Click(object sender, EventArgs e)
         {

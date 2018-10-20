@@ -57,12 +57,6 @@
     </Compile>
     <Compile Include="Desk.cs" />
     <Compile Include="DeskQuote.cs" />
-    <Compile Include="DisplayQuote.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DisplayQuote.Designer.cs">
-      <DependentUpon>DisplayQuote.cs</DependentUpon>
-    </Compile>
     <Compile Include="MainMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,17 +77,8 @@
     <Compile Include="SearchQuotesAssignment.Designer.cs">
       <DependentUpon>SearchQuotesAssignment.cs</DependentUpon>
     </Compile>
-    <Compile Include="ViewAllQuotes.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ViewAllQuotes.Designer.cs">
-      <DependentUpon>ViewAllQuotes.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="AddQuote.resx">
       <DependentUpon>AddQuote.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="DisplayQuote.resx">
-      <DependentUpon>DisplayQuote.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>
@@ -112,9 +97,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SearchQuotesAssignment.resx">
       <DependentUpon>SearchQuotesAssignment.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ViewAllQuotes.resx">
-      <DependentUpon>ViewAllQuotes.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
