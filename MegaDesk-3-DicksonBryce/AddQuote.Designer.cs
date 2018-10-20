@@ -41,12 +41,11 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.pnlRushOrderDays = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
             this.radioRush7 = new System.Windows.Forms.RadioButton();
             this.radioRush5 = new System.Windows.Forms.RadioButton();
             this.radioRush3 = new System.Windows.Forms.RadioButton();
             this.radioRushNone = new System.Windows.Forms.RadioButton();
+            this.label6 = new System.Windows.Forms.Label();
             this.confirmQuotePanel = new System.Windows.Forms.Panel();
             this.buttonSubmit = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
@@ -67,7 +66,6 @@
             this.lblNameError = new System.Windows.Forms.Label();
             this.lblWidthError = new System.Windows.Forms.Label();
             this.lblDepthError = new System.Windows.Forms.Label();
-            this.panelTest = new System.Windows.Forms.Panel();
             this.confirmQuotePanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -116,6 +114,8 @@
             this.boxName.Name = "boxName";
             this.boxName.Size = new System.Drawing.Size(100, 20);
             this.boxName.TabIndex = 7;
+            this.boxName.KeyUp += new System.Windows.Forms.KeyEventHandler(this.CheckIfChar);
+            this.boxName.Validating += new System.ComponentModel.CancelEventHandler(this.boxName_Validating);
             // 
             // boxWidth
             // 
@@ -123,6 +123,7 @@
             this.boxWidth.Name = "boxWidth";
             this.boxWidth.Size = new System.Drawing.Size(100, 20);
             this.boxWidth.TabIndex = 8;
+            this.boxWidth.KeyUp += new System.Windows.Forms.KeyEventHandler(this.CheckIfChar);
             this.boxWidth.Validating += new System.ComponentModel.CancelEventHandler(this.boxWidth_Validating);
             // 
             // boxDepth
@@ -131,6 +132,7 @@
             this.boxDepth.Name = "boxDepth";
             this.boxDepth.Size = new System.Drawing.Size(100, 20);
             this.boxDepth.TabIndex = 9;
+            this.boxDepth.KeyUp += new System.Windows.Forms.KeyEventHandler(this.CheckIfChar);
             this.boxDepth.Validating += new System.ComponentModel.CancelEventHandler(this.boxDepth_Validating);
             // 
             // comboBoxMaterial
@@ -187,26 +189,10 @@
             this.label5.TabIndex = 19;
             this.label5.Text = "&Material";
             // 
-            // pnlRushOrderDays
-            // 
-            this.pnlRushOrderDays.Location = new System.Drawing.Point(671, 188);
-            this.pnlRushOrderDays.Name = "pnlRushOrderDays";
-            this.pnlRushOrderDays.Size = new System.Drawing.Size(130, 140);
-            this.pnlRushOrderDays.TabIndex = 21;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(677, 198);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(61, 13);
-            this.label6.TabIndex = 20;
-            this.label6.Text = "Rush &Order";
-            // 
             // radioRush7
             // 
             this.radioRush7.AutoSize = true;
-            this.radioRush7.Location = new System.Drawing.Point(6, 108);
+            this.radioRush7.Location = new System.Drawing.Point(680, 294);
             this.radioRush7.Name = "radioRush7";
             this.radioRush7.Size = new System.Drawing.Size(53, 17);
             this.radioRush7.TabIndex = 24;
@@ -216,7 +202,7 @@
             // radioRush5
             // 
             this.radioRush5.AutoSize = true;
-            this.radioRush5.Location = new System.Drawing.Point(6, 84);
+            this.radioRush5.Location = new System.Drawing.Point(680, 270);
             this.radioRush5.Name = "radioRush5";
             this.radioRush5.Size = new System.Drawing.Size(53, 17);
             this.radioRush5.TabIndex = 23;
@@ -226,7 +212,7 @@
             // radioRush3
             // 
             this.radioRush3.AutoSize = true;
-            this.radioRush3.Location = new System.Drawing.Point(6, 60);
+            this.radioRush3.Location = new System.Drawing.Point(680, 246);
             this.radioRush3.Name = "radioRush3";
             this.radioRush3.Size = new System.Drawing.Size(53, 17);
             this.radioRush3.TabIndex = 22;
@@ -236,16 +222,24 @@
             // radioRushNone
             // 
             this.radioRushNone.AutoSize = true;
-            this.radioRushNone.Location = new System.Drawing.Point(6, 37);
+            this.radioRushNone.Location = new System.Drawing.Point(680, 223);
             this.radioRushNone.Name = "radioRushNone";
             this.radioRushNone.Size = new System.Drawing.Size(45, 17);
             this.radioRushNone.TabIndex = 21;
             this.radioRushNone.Text = "N/A";
             this.radioRushNone.UseVisualStyleBackColor = true;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(680, 198);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(61, 13);
+            this.label6.TabIndex = 20;
+            this.label6.Text = "Rush &Order";
+            // 
             // confirmQuotePanel
             // 
-            this.confirmQuotePanel.Controls.Add(this.panelTest);
             this.confirmQuotePanel.Controls.Add(this.buttonSubmit);
             this.confirmQuotePanel.Controls.Add(this.buttonCancel);
             this.confirmQuotePanel.Controls.Add(this.rushLabel);
@@ -433,10 +427,11 @@
             // lblNameError
             // 
             this.lblNameError.AutoSize = true;
+            this.lblNameError.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNameError.ForeColor = System.Drawing.Color.Red;
-            this.lblNameError.Location = new System.Drawing.Point(220, 55);
+            this.lblNameError.Location = new System.Drawing.Point(220, 53);
             this.lblNameError.Name = "lblNameError";
-            this.lblNameError.Size = new System.Drawing.Size(67, 13);
+            this.lblNameError.Size = new System.Drawing.Size(103, 17);
             this.lblNameError.TabIndex = 22;
             this.lblNameError.Text = "lblNameError";
             // 
@@ -444,57 +439,51 @@
             // 
             this.lblWidthError.AutoSize = true;
             this.lblWidthError.BackColor = System.Drawing.SystemColors.Control;
+            this.lblWidthError.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblWidthError.ForeColor = System.Drawing.Color.Red;
-            this.lblWidthError.Location = new System.Drawing.Point(221, 94);
+            this.lblWidthError.Location = new System.Drawing.Point(221, 93);
             this.lblWidthError.Name = "lblWidthError";
-            this.lblWidthError.Size = new System.Drawing.Size(67, 13);
+            this.lblWidthError.Size = new System.Drawing.Size(103, 17);
             this.lblWidthError.TabIndex = 23;
             this.lblWidthError.Text = "lblWidthError";
             // 
             // lblDepthError
             // 
             this.lblDepthError.AutoSize = true;
+            this.lblDepthError.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDepthError.ForeColor = System.Drawing.Color.Red;
-            this.lblDepthError.Location = new System.Drawing.Point(221, 134);
+            this.lblDepthError.Location = new System.Drawing.Point(221, 133);
             this.lblDepthError.Name = "lblDepthError";
-            this.lblDepthError.Size = new System.Drawing.Size(68, 13);
+            this.lblDepthError.Size = new System.Drawing.Size(105, 17);
             this.lblDepthError.TabIndex = 24;
             this.lblDepthError.Text = "lblDepthError";
-            // 
-            // panelTest
-            // 
-            this.panelTest.Location = new System.Drawing.Point(436, 84);
-            this.panelTest.Name = "panelTest";
-            this.panelTest.Size = new System.Drawing.Size(200, 100);
-            this.panelTest.TabIndex = 25;
             // 
             // AddQuote
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.confirmQuotePanel);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.lblDepthError);
-            this.Controls.Add(this.lblWidthError);
-            this.Controls.Add(this.lblNameError);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.comboBoxMaterial);
-            this.Controls.Add(this.radioRush7);
-            this.Controls.Add(this.radioRush5);
-            this.Controls.Add(this.radioRush3);
-            this.Controls.Add(this.radioRushNone);
-            this.Controls.Add(this.boxDepth);
-            this.Controls.Add(this.boxWidth);
             this.Controls.Add(this.boxName);
+            this.Controls.Add(this.lblNameError);
+            this.Controls.Add(this.boxWidth);
+            this.Controls.Add(this.lblWidthError);
+            this.Controls.Add(this.boxDepth);
+            this.Controls.Add(this.lblDepthError);
             this.Controls.Add(this.comboBoxDrawers);
             this.Controls.Add(this.buttonConfirm);
             this.Controls.Add(this.buttonExitAdd);
-            this.Controls.Add(this.confirmQuotePanel);
-            this.Controls.Add(this.pnlRushOrderDays);
+            this.Controls.Add(this.radioRushNone);
+            this.Controls.Add(this.radioRush3);
+            this.Controls.Add(this.radioRush5);
+            this.Controls.Add(this.radioRush7);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AddQuote";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -515,17 +504,16 @@
         private System.Windows.Forms.TextBox boxName;
         private System.Windows.Forms.TextBox boxWidth;
         private System.Windows.Forms.TextBox boxDepth;
-        //private System.Windows.Forms.RadioButton radioRushNone;
-        //private System.Windows.Forms.RadioButton radioRush3;
-        //private System.Windows.Forms.RadioButton radioRush5;
-        //private System.Windows.Forms.RadioButton radioRush7;
+        private System.Windows.Forms.RadioButton radioRushNone;
+        private System.Windows.Forms.RadioButton radioRush3;
+        private System.Windows.Forms.RadioButton radioRush5;
+        private System.Windows.Forms.RadioButton radioRush7;
         private System.Windows.Forms.ComboBox comboBoxMaterial;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Panel pnlRushOrderDays;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel confirmQuotePanel;
         private System.Windows.Forms.Label rushLabel;
@@ -544,14 +532,14 @@
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Button buttonSubmit;
         private System.Windows.Forms.Button buttonCancel;
-        private System.Windows.Forms.Button rushPriceTest;
-        private System.Windows.Forms.RadioButton radioRush7;
-        private System.Windows.Forms.RadioButton radioRush5;
-        private System.Windows.Forms.RadioButton radioRush3;
-        private System.Windows.Forms.RadioButton radioRushNone;
+        //private System.Windows.Forms.Button rushPriceTest;
+        //private System.Windows.Forms.RadioButton radioRush7Bad;
+        //private System.Windows.Forms.RadioButton radioRush5Bad;
+        //private System.Windows.Forms.RadioButton radioRush3Bad;
+        //private System.Windows.Forms.RadioButton radioRushNoneBad;
         private System.Windows.Forms.Label lblNameError;
         private System.Windows.Forms.Label lblWidthError;
         private System.Windows.Forms.Label lblDepthError;
-        private System.Windows.Forms.Panel panelTest;
+        //private System.Windows.Forms.Panel pnlRushOrderDays;
     }
 }

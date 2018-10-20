@@ -12,9 +12,12 @@ namespace MegaDesk_3_DicksonBryce
         #region Member Vars
 
         //Quote Description
-        private string CustomerName;
-        private DateTime QuoteDate;
-        private Desk Desk = new Desk();
+        //Change back to private ASAP
+        public string CustomerName;
+        //Change back to private ASAP
+        public DateTime QuoteDate;
+        //Change back to private ASAP
+        public Desk Desk = new Desk();
         //private int material;
         //private int materialCost;
         public int QuoteTotal;
