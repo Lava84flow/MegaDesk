@@ -8,7 +8,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-// Alex's test comment
+
+// Prof Blazzard suggested this
+using Newtonsoft.Json;
+
+// Taylor Bailey suggested this
+using System.Runtime.Serialization;
+
 namespace MegaDesk_3_DicksonBryce
 {
     public partial class AddQuote : Form
@@ -22,7 +28,7 @@ namespace MegaDesk_3_DicksonBryce
         Desk.Material Material;
         int RushDays = 0;
         int QuoteTotal;
-               
+
         #endregion
 
         public AddQuote()
@@ -50,12 +56,12 @@ namespace MegaDesk_3_DicksonBryce
                 boxName.BackColor = System.Drawing.SystemColors.Window;
             }
         }
-               
+
         private void boxWidth_Validating(object sender, CancelEventArgs e)
         {
             if (int.TryParse(boxWidth.Text, out int WidthInput) == true)
             {
-                if(WidthInput < Desk.MINWIDTH || WidthInput > Desk.MAXWIDTH)
+                if (WidthInput < Desk.MINWIDTH || WidthInput > Desk.MAXWIDTH)
                 {
                     MessageBox.Show("Please enter a width from " + Desk.MINWIDTH + " to " + Desk.MAXWIDTH + " inches");
                     boxWidth.Text = String.Empty;
@@ -67,7 +73,7 @@ namespace MegaDesk_3_DicksonBryce
                     boxWidth.BackColor = System.Drawing.SystemColors.Window;
                 }
             }
-            else if(int.TryParse(boxWidth.Text, out WidthInput) == false && boxWidth.Text.Length != 0)
+            else if (int.TryParse(boxWidth.Text, out WidthInput) == false && boxWidth.Text.Length != 0)
             {
                 MessageBox.Show("Please enter a number");
                 boxWidth.Text = String.Empty;
@@ -116,7 +122,7 @@ namespace MegaDesk_3_DicksonBryce
                     boxDepth.BackColor = System.Drawing.SystemColors.Window;
                 }
             }
-                //no longer need with handled keypress
+            //no longer need with handled keypress
             else if (int.TryParse(boxDepth.Text, out DepthInput) == false && boxDepth.Text.Length != 0)
             {
                 MessageBox.Show("Please enter a number");
@@ -144,7 +150,7 @@ namespace MegaDesk_3_DicksonBryce
             Close();
         }
 
-        public bool UserClosing { get; set; }   
+        public bool UserClosing { get; set; }
 
         private void AddQuote_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -213,15 +219,15 @@ namespace MegaDesk_3_DicksonBryce
                 }
 
                 // create new deskOrder and calcQuote
-                DeskQuote NewQuote = new DeskQuote( CustomerName, DateTime.Now, DeskWidth, DeskDepth, Drawers, Material, RushDays );
+                DeskQuote NewQuote = new DeskQuote(CustomerName, DateTime.Now, DeskWidth, DeskDepth, Drawers, Material, RushDays);
                 QuoteTotal = NewQuote.CalcQuote();
 
-
-                MemoryStream stream = new MemoryStream();
-                DataContractJsonSerializer ser = new DataContractJsonSerializer();
+                //json = JsonConvert.SerializeObject(NewQuote);
+                MemoryStream stream1 = new MemoryStream();
+                DataContractJsonSerializer ser = new DataContractJsonSerializer(typeof(NewQuote));
 
                 //build string to quote save to file
-                var DeskFileWrite = CustomerName + "," + DateTime.Now + "," + DeskWidth+ "," + DeskDepth + "," + Drawers + "," + Material + "," + RushDays + "," + QuoteTotal;
+                var DeskFileWrite = CustomerName + "," + DateTime.Now + "," + DeskWidth + "," + DeskDepth + "," + Drawers + "," + Material + "," + RushDays + "," + QuoteTotal;
                 string cFile = @"quotes.txt";
                 if (!File.Exists(cFile))
                 {
@@ -230,11 +236,11 @@ namespace MegaDesk_3_DicksonBryce
                 using (StreamWriter swa = File.AppendText("quotes.txt.")) { swa.WriteLine(DeskFileWrite); }
 
                 MessageBox.Show("Quote Submitted");
-                     
+
             }
             catch (Exception)
             {
-                
+
                 throw;
             }
         }
