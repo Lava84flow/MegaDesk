@@ -14,7 +14,7 @@ namespace MegaDesk_3_DicksonBryce
     public partial class SearchQuotesAssignment : Form
     {
 
-        private const string QUOTEFILE = @"quotes.txt";
+        private const string QUOTEFILE = @"quotes.json";
 
         public SearchQuotesAssignment()
         {
