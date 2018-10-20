@@ -61,7 +61,7 @@
             this.nameLabel = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
-            //this.rushPriceTest = new System.Windows.Forms.Button();
+            this.rushPriceTest = new System.Windows.Forms.Button();
             this.confirmQuotePanel.SuspendLayout();
 =======
             this.radioRush7 = new System.Windows.Forms.RadioButton();
@@ -402,7 +402,6 @@
             // 
             // rushPriceTest
             // 
-            /*
             this.rushPriceTest.Location = new System.Drawing.Point(601, 95);
             this.rushPriceTest.Name = "rushPriceTest";
             this.rushPriceTest.Size = new System.Drawing.Size(95, 23);
@@ -410,6 +409,7 @@
             this.rushPriceTest.Text = "Rush Price Test";
             this.rushPriceTest.UseVisualStyleBackColor = true;
             this.rushPriceTest.Click += new System.EventHandler(this.rushPriceTest_Click);
+<<<<<<< HEAD
             */
 =======
             // radioRush7
@@ -483,6 +483,8 @@
             this.lblDepthError.TabIndex = 24;
             this.lblDepthError.Text = "lblDepthError";
 >>>>>>> collab-Alex
+=======
+>>>>>>> parent of 3b00ce7... finshed Prices Array
             // 
             // AddQuote
             // 
@@ -502,7 +504,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            //this.Controls.Add(this.rushPriceTest);
+            this.Controls.Add(this.rushPriceTest);
             this.Controls.Add(this.comboBoxMaterial);
             this.Controls.Add(this.boxDepth);
             this.Controls.Add(this.boxWidth);
@@ -567,6 +569,7 @@
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Button buttonSubmit;
         private System.Windows.Forms.Button buttonCancel;
+<<<<<<< HEAD
         //private System.Windows.Forms.Button rushPriceTest;
 =======
         private System.Windows.Forms.RadioButton radioRush7;
@@ -577,5 +580,8 @@
         private System.Windows.Forms.Label lblWidthError;
         private System.Windows.Forms.Label lblDepthError;
 >>>>>>> collab-Alex
+=======
+        private System.Windows.Forms.Button rushPriceTest;
+>>>>>>> parent of 3b00ce7... finshed Prices Array
     }
 }

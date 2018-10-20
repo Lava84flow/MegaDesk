@@ -19,7 +19,7 @@ namespace MegaDesk_3_DicksonBryce
         //private int materialCost;
         public int QuoteTotal;
         public int RushDays;
-
+        
 
         #endregion
 
@@ -103,35 +103,21 @@ namespace MegaDesk_3_DicksonBryce
 
         public const string RUSHPRICES = @"../../rushOrderPrices.txt";
 
-        public static int[,] GrabPrices()
+        public static void GrabPrices(int Area, int Days)
         {
-            string[] lines = File.ReadAllLines(RUSHPRICES);
+            //    int[,] rushPrice = arr;
 
-            int[,] rushPrice = new int[3, 3];
+            //    string[] lines = File.ReadAllLines(RUSHPRICES);
 
-            for (int i = 0; i < 3; i++)
-            {
-                for (int j = 0; j < 3; j++)
-                {
-                    rushPrice[i, j] = Int32.Parse(lines[(i * 3) + j]);
-                }
-            }
-            return rushPrice;
+            //    string[][] arr = new string[lines.Length][];
 
+            //    for (int days = 0; days < lines.Length; days++)
+            //    {
+            //        // Split by the space character and remove blank entries
+            //        arr[days] = lines[days].Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+            //    }
+            //    return rushPrice[ , ];
         }
-
-        //private static T[,] Make2DArray<T>(T[] input, int height, int width)
-        //{
-        //    T[,] output = new T[height, width];
-        //    for (int i = 0; i < height; i++)
-        //    {
-        //        for (int j = 0; j < width; j++)
-        //        {
-        //            output[i, j] = input[i * width + j];
-        //        }
-        //    }
-        //    return output;
-        //}
 
         #endregion
 
@@ -145,43 +131,43 @@ namespace MegaDesk_3_DicksonBryce
                 case 3 :
                     if (Desk.Area > SIZE_THRESHOLD)
                     {
-                         rushCost = GrabPrices()[0,0];
+                         rushCost = 60;
                     }
                     if (Desk.Area < SIZE_THRESHOLD && Desk.Area > RUSH_THRESHOLD)
                     {
-                        rushCost = GrabPrices()[0,1];
+                         rushCost = 70;
                     }
                     if (Desk.Area < RUSH_THRESHOLD)
                     {
-                        rushCost = GrabPrices()[0, 2];
+                         rushCost = 80;
                     }
                     break;
                 case 5 :
                     if (Desk.Area > SIZE_THRESHOLD)
                     {
-                         rushCost = GrabPrices()[1,0];
+                         rushCost = 40;
                     }
                     if (Desk.Area < SIZE_THRESHOLD && Desk.Area > RUSH_THRESHOLD)
                     {
-                         rushCost = GrabPrices()[1,1];
+                         rushCost = 50;
                     }
                     if (Desk.Area < RUSH_THRESHOLD)
                     {
-                         rushCost = GrabPrices()[1,2];
+                         rushCost = 60;
                     }
                     break;
                 case 7 :
                     if (Desk.Area > SIZE_THRESHOLD)
                     {
-                         rushCost = GrabPrices()[2,0];
+                         rushCost = 30;
                     }
                     if (Desk.Area < SIZE_THRESHOLD && Desk.Area > RUSH_THRESHOLD)
                     {
-                         rushCost = GrabPrices()[2,1];
+                         rushCost = 35;
                     }
                     if (Desk.Area < RUSH_THRESHOLD)
                     {
-                        rushCost = GrabPrices()[2,2];
+                        rushCost = 40;
                     }
                     break;
             }
