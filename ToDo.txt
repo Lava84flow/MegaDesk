@@ -5,3 +5,5 @@ done: add datetime grab for addquote
 done: add search for quotes based on material
 done: add file dump to text file called quotes.txt in csv
 low: Add None option to search quote that dsiaplys all quotes currently in the 'database' instead of the all quotes form
+
+LFJLSDJD
