@@ -129,44 +129,43 @@ namespace MegaDesk_3_DicksonBryce
             switch (RushDays)
             {
                 case 3 :
-                    // here's a bug nobody caught... the < and > were backwards... fixed them though
-                    if (Desk.Area < SIZE_THRESHOLD)
+                    if (Desk.Area > SIZE_THRESHOLD)
                     {
                          rushCost = 60;
                     }
-                    if (Desk.Area > SIZE_THRESHOLD && Desk.Area < RUSH_THRESHOLD)
+                    if (Desk.Area < SIZE_THRESHOLD && Desk.Area > RUSH_THRESHOLD)
                     {
                          rushCost = 70;
                     }
-                    if (Desk.Area > RUSH_THRESHOLD)
+                    if (Desk.Area < RUSH_THRESHOLD)
                     {
                          rushCost = 80;
                     }
                     break;
                 case 5 :
-                    if (Desk.Area < SIZE_THRESHOLD)
+                    if (Desk.Area > SIZE_THRESHOLD)
                     {
                          rushCost = 40;
                     }
-                    if (Desk.Area > SIZE_THRESHOLD && Desk.Area < RUSH_THRESHOLD)
+                    if (Desk.Area < SIZE_THRESHOLD && Desk.Area > RUSH_THRESHOLD)
                     {
                          rushCost = 50;
                     }
-                    if (Desk.Area > RUSH_THRESHOLD)
+                    if (Desk.Area < RUSH_THRESHOLD)
                     {
                          rushCost = 60;
                     }
                     break;
                 case 7 :
-                    if (Desk.Area < SIZE_THRESHOLD)
+                    if (Desk.Area > SIZE_THRESHOLD)
                     {
                          rushCost = 30;
                     }
-                    if (Desk.Area > SIZE_THRESHOLD && Desk.Area < RUSH_THRESHOLD)
+                    if (Desk.Area < SIZE_THRESHOLD && Desk.Area > RUSH_THRESHOLD)
                     {
                          rushCost = 35;
                     }
-                    if (Desk.Area > RUSH_THRESHOLD)
+                    if (Desk.Area < RUSH_THRESHOLD)
                     {
                         rushCost = 40;
                     }
