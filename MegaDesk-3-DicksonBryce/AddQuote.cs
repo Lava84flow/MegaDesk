@@ -244,7 +244,7 @@ namespace MegaDesk_3_DicksonBryce
             depthLabel.Text = boxDepth.Text + " inches";
             drawerLabel.Text = comboBoxDrawers.SelectedItem.ToString();
             materialLabel.Text = comboBoxMaterial.SelectedItem.ToString();
-            rushLabel.Text = RushDays.ToString() + " days";
+            
             if (radioRushNone.Checked)
             {
                 RushDays = 0;
@@ -261,6 +261,7 @@ namespace MegaDesk_3_DicksonBryce
             {
                 RushDays = 7;
             }
+            rushLabel.Text = RushDays.ToString() + " days";
             confirmQuotePanel.Visible = true;
         }
 
@@ -269,19 +270,17 @@ namespace MegaDesk_3_DicksonBryce
             confirmQuotePanel.Visible = false;
         }
 
-        private void rushPriceTest_Click(object sender, EventArgs e)
-        {
-            if (!File.Exists(DeskQuote.RUSHPRICES))
-            {
-                MessageBox.Show("Can't find Rush Prices");
-            }
-            else
-            {
-                System.Media.SystemSounds.Beep.Play();
-                DeskQuote.GrabPrices(1500, RushDays);
-            }
-
-
-        }
+        //private void rushPriceTest_Click(object sender, EventArgs e)
+        //{
+        //    if (!File.Exists(DeskQuote.RUSHPRICES))
+        //    {
+        //        MessageBox.Show("Can't find Rush Prices");
+        //    }
+        //    else
+        //    {
+        //        System.Media.SystemSounds.Beep.Play();
+        //        DeskQuote.GrabPrices();
+        //    }
+        //}
     }
 }
