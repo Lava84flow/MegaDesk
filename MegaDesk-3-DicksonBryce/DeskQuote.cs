@@ -143,43 +143,44 @@ namespace MegaDesk_3_DicksonBryce
             switch (RushDays)
             {
                 case 3 :
-                    if (Desk.Area > SIZE_THRESHOLD)
+                    // here's a bug nobody caught... the < and > were backwards... fixed them though
+                    if (Desk.Area < SIZE_THRESHOLD)
                     {
                          rushCost = GrabPrices()[0,0];
                     }
-                    if (Desk.Area < SIZE_THRESHOLD && Desk.Area > RUSH_THRESHOLD)
+                    if (Desk.Area > SIZE_THRESHOLD && Desk.Area < RUSH_THRESHOLD)
                     {
                         rushCost = GrabPrices()[0,1];
                     }
-                    if (Desk.Area < RUSH_THRESHOLD)
+                    if (Desk.Area > RUSH_THRESHOLD)
                     {
                         rushCost = GrabPrices()[0, 2];
                     }
                     break;
                 case 5 :
-                    if (Desk.Area > SIZE_THRESHOLD)
+                    if (Desk.Area < SIZE_THRESHOLD)
                     {
                          rushCost = GrabPrices()[1,0];
                     }
-                    if (Desk.Area < SIZE_THRESHOLD && Desk.Area > RUSH_THRESHOLD)
+                    if (Desk.Area > SIZE_THRESHOLD && Desk.Area < RUSH_THRESHOLD)
                     {
                          rushCost = GrabPrices()[1,1];
                     }
-                    if (Desk.Area < RUSH_THRESHOLD)
+                    if (Desk.Area > RUSH_THRESHOLD)
                     {
                          rushCost = GrabPrices()[1,2];
                     }
                     break;
                 case 7 :
-                    if (Desk.Area > SIZE_THRESHOLD)
+                    if (Desk.Area < SIZE_THRESHOLD)
                     {
                          rushCost = GrabPrices()[2,0];
                     }
-                    if (Desk.Area < SIZE_THRESHOLD && Desk.Area > RUSH_THRESHOLD)
+                    if (Desk.Area > SIZE_THRESHOLD && Desk.Area < RUSH_THRESHOLD)
                     {
                          rushCost = GrabPrices()[2,1];
                     }
-                    if (Desk.Area < RUSH_THRESHOLD)
+                    if (Desk.Area > RUSH_THRESHOLD)
                     {
                         rushCost = GrabPrices()[2,2];
                     }
