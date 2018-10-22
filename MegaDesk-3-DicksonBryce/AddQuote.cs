@@ -328,8 +328,9 @@ namespace MegaDesk_3_DicksonBryce
                 //var DeskFileWrite = CustomerName + "," + DateTime.Now + "," + DeskWidth + "," + DeskDepth + "," + Drawers + "," + Material + "," + RushDays + "," + QuoteTotal;
                 //var DeskFileWrite = NewQuote;
 
-                // ask how to do this without making all of the properties public because I know they are in and can be used there i just have no idea how to get the Serializer to get them when they are "private".
-                string jsonWrite = JsonConvert.SerializeObject(NewQuote, Formatting.Indented);
+                // ask how to do this without making all of the properties public because I know they are in and can be used
+                // I just have no idea how to get the Serializer to get them when they are "private".
+                string jsonWrite = JsonConvert.SerializeObject(NewQuote);
                 string jsonFile = @"quotes.json";
 
                 if (!File.Exists(jsonFile))

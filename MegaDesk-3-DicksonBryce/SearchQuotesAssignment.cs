@@ -120,7 +120,19 @@ namespace MegaDesk_3_DicksonBryce
                             if (jsonLineDeskQuote.Desk.DeskMaterial.ToString() == MaterialSelected)
                             {
                                 quoteCount++;
-                                listViewResults.Items.Add(new ListViewItem(new[] { quoteCount.ToString(), jsonLineDeskQuote.CustomerName, jsonLineDeskQuote.QuoteDate.ToString(), jsonLineDeskQuote.Desk.Width.ToString(), jsonLineDeskQuote.Desk.Depth.ToString(), jsonLineDeskQuote.Desk.Drawers.ToString(), jsonLineDeskQuote.Desk.DeskMaterial.ToString(), jsonLineDeskQuote.QuoteTotal.ToString(), jsonLineDeskQuote.RushDays.ToString() }));
+                                listViewResults.Items.Add(new ListViewItem(new[] 
+                                {
+                                    quoteCount.ToString(),
+                                    jsonLineDeskQuote.CustomerName,
+                                    jsonLineDeskQuote.QuoteDate.ToString(),
+                                    jsonLineDeskQuote.Desk.Width.ToString(),
+                                    jsonLineDeskQuote.Desk.Depth.ToString(),
+                                    jsonLineDeskQuote.Desk.Drawers.ToString(),
+                                    jsonLineDeskQuote.Desk.DeskMaterial.ToString(),
+                                    jsonLineDeskQuote.RushDays.ToString(),
+                                    jsonLineDeskQuote.QuoteTotal.ToString()
+                                }
+                                ));
                             }
                         }
                     }
