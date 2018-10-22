@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Newtonsoft.Json;
 
 namespace MegaDesk_3_DicksonBryce
 {
@@ -113,11 +114,13 @@ namespace MegaDesk_3_DicksonBryce
                         int quoteCount = 0;
                         while (!sr.EndOfStream)
                         {
-                            string[] fieldvalue = sr.ReadLine().Split(',');
-                            if (fieldvalue[5] == MaterialSelected)
+                            //string[] fieldvalue = .Split(',');
+                            var line = sr.ReadLine();
+                            DeskQuote jsonLineDeskQuote = JsonConvert.DeserializeObject<DeskQuote>(line);
+                            if (jsonLineDeskQuote.Desk.DeskMaterial.ToString() == MaterialSelected)
                             {
                                 quoteCount++;
-                                listViewResults.Items.Add(new ListViewItem(new[] { quoteCount.ToString(), fieldvalue[0], fieldvalue[1], fieldvalue[2], fieldvalue[3], fieldvalue[4], fieldvalue[5], fieldvalue[6], "$" + fieldvalue[7] }));
+                                listViewResults.Items.Add(new ListViewItem(new[] { quoteCount.ToString(), jsonLineDeskQuote.CustomerName, jsonLineDeskQuote.QuoteDate.ToString(), jsonLineDeskQuote.Desk.Width.ToString(), jsonLineDeskQuote.Desk.Depth.ToString(), jsonLineDeskQuote.Desk.Drawers.ToString(), jsonLineDeskQuote.Desk.DeskMaterial.ToString(), jsonLineDeskQuote.QuoteTotal.ToString(), jsonLineDeskQuote.RushDays.ToString() }));
                             }
                         }
                     }
