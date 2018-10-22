@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 // Prof Blazzard suggested this
 using Newtonsoft.Json;
+
 namespace MegaDesk_3_DicksonBryce
 {
     public partial class AddQuote : Form
@@ -239,11 +240,6 @@ namespace MegaDesk_3_DicksonBryce
             }
         }
 
-        private void boxDepth_Validated(object sender, EventArgs e)
-        {
-
-        }
-
         private void buttonBack_Click(object sender, EventArgs e)
         {
             UserClosing = true;
@@ -294,141 +290,141 @@ namespace MegaDesk_3_DicksonBryce
 
         private void buttonSubmit_Click(object sender, EventArgs e)
         {
-            //if (ValidateRequirements())
-            //{
-            //    try
-                {
-                    CustomerName = boxName.Text;
-                    DeskWidth = int.Parse(boxWidth.Text);
-                    DeskDepth = int.Parse(boxDepth.Text);
-                    Drawers = int.Parse(comboBoxDrawers.SelectedItem.ToString());
-                    Material = (Desk.Material)comboBoxMaterial.SelectedValue;
+            ////if (ValidateRequirements())
+            ////{
+            ////    try
+            //    {
+            //        CustomerName = boxName.Text;
+            //        DeskWidth = int.Parse(boxWidth.Text);
+            //        DeskDepth = int.Parse(boxDepth.Text);
+            //        Drawers = int.Parse(comboBoxDrawers.SelectedItem.ToString());
+            //        Material = (Desk.Material)comboBoxMaterial.SelectedValue;
 
-                    // Get rush order days base on radio box selections
-                    if (radioRushNone.Checked)
-                    {
-                        RushDays = 0;
-                    }
-                    if (radioRush3.Checked)
-                    {
-                        RushDays = 3;
-                    }
-                    if (radioRush5.Checked)
-                    {
-                        RushDays = 5;
-                    }
-                    if (radioRush7.Checked)
-                    {
-                        RushDays = 7;
-                    }
+            //        // Get rush order days base on radio box selections
+            //        if (radioRushNone.Checked)
+            //        {
+            //            RushDays = 0;
+            //        }
+            //        if (radioRush3.Checked)
+            //        {
+            //            RushDays = 3;
+            //        }
+            //        if (radioRush5.Checked)
+            //        {
+            //            RushDays = 5;
+            //        }
+            //        if (radioRush7.Checked)
+            //        {
+            //            RushDays = 7;
+            //        }
 
-                    // create new deskOrder and calcQuote
-                    DeskQuote NewQuote = new DeskQuote( CustomerName, DateTime.Now, DeskWidth, DeskDepth, Drawers, Material, RushDays );
-                    QuoteTotal = NewQuote.CalcQuote();
+            //        // create new deskOrder and calcQuote
+            //        DeskQuote NewQuote = new DeskQuote( CustomerName, DateTime.Now, DeskWidth, DeskDepth, Drawers, Material, RushDays );
+            //        QuoteTotal = NewQuote.CalcQuote();
 
-                ////build string to quote save to file
-                //var DeskFileWrite = CustomerName + "," + DateTime.Now + "," + DeskWidth+ "," + DeskDepth + "," + Drawers + "," + Material + "," + RushDays + "," + QuoteTotal;
-                //string cFile = @"quotes.txt";
-                //if (!File.Exists(cFile))
-                //{
-                //    using (StreamWriter sw = File.CreateText("quotes.txt.")) { }
-                //}
-                //using (StreamWriter swa = File.AppendText("quotes.txt.")) { swa.WriteLine(DeskFileWrite); }
-                //    string json = JsonConvert.SerializeObject(NewQuote);
-                //    string jsonFile = @"quotes.json";
-                //    var DeskFileWrite = CustomerName + "," + DateTime.Now + "," + DeskWidth + "," + DeskDepth + "," + Drawers + "," + Material + "," + RushDays + "," + QuoteTotal;
+            //    ////build string to quote save to file
+            //    //var DeskFileWrite = CustomerName + "," + DateTime.Now + "," + DeskWidth+ "," + DeskDepth + "," + Drawers + "," + Material + "," + RushDays + "," + QuoteTotal;
+            //    //string cFile = @"quotes.txt";
+            //    //if (!File.Exists(cFile))
+            //    //{
+            //    //    using (StreamWriter sw = File.CreateText("quotes.txt.")) { }
+            //    //}
+            //    //using (StreamWriter swa = File.AppendText("quotes.txt.")) { swa.WriteLine(DeskFileWrite); }
+            //    //    string json = JsonConvert.SerializeObject(NewQuote);
+            //    //    string jsonFile = @"quotes.json";
+            //    //    var DeskFileWrite = CustomerName + "," + DateTime.Now + "," + DeskWidth + "," + DeskDepth + "," + Drawers + "," + Material + "," + RushDays + "," + QuoteTotal;
 
-                //    if (!File.Exists(jsonFile))
-                //    {
-                //        using (StreamWriter sw = File.CreateText(jsonFile)) { }
-                //    }
-                //    using (StreamWriter swa = File.AppendText(jsonFile)) { swa.WriteLine(DeskFileWrite); }
+            //    //    if (!File.Exists(jsonFile))
+            //    //    {
+            //    //        using (StreamWriter sw = File.CreateText(jsonFile)) { }
+            //    //    }
+            //    //    using (StreamWriter swa = File.AppendText(jsonFile)) { swa.WriteLine(DeskFileWrite); }
 
-        //        MessageBox.Show("Quote Submitted");
-        //        confirmQuotePanel.Visible = false;
-        //            MessageBox.Show("Quote Submitted");
-        //        }
-        //        catch (Exception)
-        //        {
-        //            MessageBox.Show("Could not calculate quote. Please fill out all fields", "Error");
-        //        }
-        //    }
-        //    else
-        //    {
-        //        MessageBox.Show("Could not calculate quote. Please fill out all fields", "Error");
-        //    }
-        //}
+            //    //        MessageBox.Show("Quote Submitted");
+            //    //        confirmQuotePanel.Visible = false;
+            //    //            MessageBox.Show("Quote Submitted");
+            //    //        }
+            //    //        catch (Exception)
+            //    //        {
+            //    //            MessageBox.Show("Could not calculate quote. Please fill out all fields", "Error");
+            //    //        }
+            //    //    }
+            //    //    else
+            //    //    {
+            //    //        MessageBox.Show("Could not calculate quote. Please fill out all fields", "Error");
+            //    //    }
+            //    //}
 
 
-        //public bool ValidateRequirements()
-        //{
-        //    bool boxNameValid = false;
-        //    bool boxWidthValid = false;
-        //    bool boxDepthValid = false;
-        //    bool drawersValid = false;
-        //    bool rushOrderDaysValid = false;
+            //    //public bool ValidateRequirements()
+            //    //{
+            //    //    bool boxNameValid = false;
+            //    //    bool boxWidthValid = false;
+            //    //    bool boxDepthValid = false;
+            //    //    bool drawersValid = false;
+            //    //    bool rushOrderDaysValid = false;
 
-            //// Check if boxName is valid
-            //if (boxName.Text != string.Empty)
-            //{
-            //    boxNameValid = true;
+            //    //// Check if boxName is valid
+            //    //if (boxName.Text != string.Empty)
+            //    //{
+            //    //    boxNameValid = true;
+            //    //}
+
+            //    //// Check if boxWidth is valid
+            //    //bool widthIsNumeric = int.TryParse(boxWidth.Text, out int n);
+            //    //if (boxWidth.Text != string.Empty && Convert.ToInt32(boxWidth.Text) > 24 && Convert.ToInt32(boxWidth.Text) < 96 && widthIsNumeric == true)
+            //    //{
+            //    //    boxWidthValid = true;
+            //    //}
+
+            //    //// Check if boxDepth is valid
+            //    //bool depthIsNumeric = int.TryParse(boxDepth.Text, out int m);
+            //    //if (boxDepth.Text != string.Empty && Convert.ToInt32(boxDepth.Text) > 12 && Convert.ToInt32(boxDepth.Text) < 48 && widthIsNumeric == true)
+            //    //{
+            //    //    boxDepthValid = true;
+            //    //}
+
+            //    //// Check if comboBoxDrawers is valid
+            //    //string drawerCount;
+            //    //try
+            //    //{
+            //    //    drawerCount = comboBoxDrawers.SelectedItem.ToString();
+            //    //}
+            //    //catch
+            //    //{
+            //    //    drawerCount = "";
+            //    //}
+
+            //    //    if (drawerCount != null && drawerCount != string.Empty)
+            //    //    {
+            //    //        drawersValid = true;
+            //    //    }
+
+            //    //    foreach (Control c in pnlRushOrderDays.Controls)
+            //    //    {
+            //    //        if (c is RadioButton)
+            //    //        {
+            //    //            RadioButton rb = (RadioButton)c;
+            //    //            if (rb.Checked == true)
+            //    //            {
+            //    //                rushOrderDaysValid = true;
+            //    //            }
+            //    //        }
+            //    //    }
+
+            //    //    if (boxNameValid == true && boxWidthValid == true && boxDepthValid == true && drawersValid == true && rushOrderDaysValid == true)
+            //    //    {
+            //    //        return true;
+            //    //    }
+            //    //    else
+            //    //    {
+            //    //        return false;
+            //    //    catch (Exception)
+            //    //    {
+
+            //    //        throw;
             //}
-
-            //// Check if boxWidth is valid
-            //bool widthIsNumeric = int.TryParse(boxWidth.Text, out int n);
-            //if (boxWidth.Text != string.Empty && Convert.ToInt32(boxWidth.Text) > 24 && Convert.ToInt32(boxWidth.Text) < 96 && widthIsNumeric == true)
-            //{
-            //    boxWidthValid = true;
-            //}
-
-            //// Check if boxDepth is valid
-            //bool depthIsNumeric = int.TryParse(boxDepth.Text, out int m);
-            //if (boxDepth.Text != string.Empty && Convert.ToInt32(boxDepth.Text) > 12 && Convert.ToInt32(boxDepth.Text) < 48 && widthIsNumeric == true)
-            //{
-            //    boxDepthValid = true;
-            //}
-
-            //// Check if comboBoxDrawers is valid
-            //string drawerCount;
-            //try
-            //{
-            //    drawerCount = comboBoxDrawers.SelectedItem.ToString();
-            //}
-            //catch
-            //{
-            //    drawerCount = "";
-            //}
-            
-        //    if (drawerCount != null && drawerCount != string.Empty)
-        //    {
-        //        drawersValid = true;
-        //    }
-
-        //    foreach (Control c in pnlRushOrderDays.Controls)
-        //    {
-        //        if (c is RadioButton)
-        //        {
-        //            RadioButton rb = (RadioButton)c;
-        //            if (rb.Checked == true)
-        //            {
-        //                rushOrderDaysValid = true;
-        //            }
-        //        }
-        //    }
-
-        //    if (boxNameValid == true && boxWidthValid == true && boxDepthValid == true && drawersValid == true && rushOrderDaysValid == true)
-        //    {
-        //        return true;
-        //    }
-        //    else
-        //    {
-        //        return false;
-        //    catch (Exception)
-        //    {
-                
-        //        throw;
-        //    }
-        //}
+        }
 
         private void buttonConfirm_Click(object sender, EventArgs e)
         {
