@@ -104,7 +104,7 @@ namespace MegaDesk_3_DicksonBryce
         // grab Rush Prices out of a file and then make multi dimensional array
         #region RushCost Array
 
-        public const string RUSHPRICES = @"../../rushOrderPrices.txt";
+        public const string RUSHPRICES = @"rushOrderPrices.txt";
 
         public static int[,] GrabPrices()
         {
