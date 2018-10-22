@@ -131,8 +131,7 @@ namespace MegaDesk_3_DicksonBryce
                                     jsonLineDeskQuote.Desk.DeskMaterial.ToString(),
                                     jsonLineDeskQuote.RushDays.ToString(),
                                     jsonLineDeskQuote.QuoteTotal.ToString()
-                                }
-                                ));
+                                }));
                             }
                         }
                     }
